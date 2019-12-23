@@ -1,3 +1,4 @@
+using angular_dotnet.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace angular_dotnet.Persistence
@@ -9,5 +10,6 @@ namespace angular_dotnet.Persistence
         {
 
         }
+        public DbSet<Make> Makes { get; set; }
     }
 }
