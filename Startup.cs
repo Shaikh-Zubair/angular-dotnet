@@ -1,3 +1,4 @@
+using System;
 using angular_dotnet.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,7 +29,8 @@ namespace angular_dotnet
             {
                 configuration.RootPath = "ClientApp/dist";
             });
-            services.AddDbContext<AngularDbContext>(options => options.UseSqlServer("..."))
+            Console.WriteLine(Configuration.GetConnectionString("Default"));
+            services.AddDbContext<AngularDbContext>(options => options.UseMySql(Configuration.GetConnectionString("Default")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
