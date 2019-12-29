@@ -8,7 +8,7 @@ namespace angular_dotnet.Persistence
         public AngularDbContext(DbContextOptions<AngularDbContext> options)
             : base(options)
         {
-
+            // options.UseMySql()
         }
         public DbSet<Make> Makes { get; set; }
     }

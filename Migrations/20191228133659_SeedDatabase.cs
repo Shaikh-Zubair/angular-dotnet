@@ -29,7 +29,10 @@ namespace angular_dotnet.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.Sql($"DELETE FROM Makes WHERE Name IN ({makeNames})");
+            for (int i = 0; i < Length; i++)
+            {
+                migrationBuilder.Sql($"DELETE FROM Makes WHERE Name IN ('{makeNames[i]}')");
+            }
         }
     }
 }
