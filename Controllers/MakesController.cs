@@ -11,10 +11,12 @@ namespace angular_dotnet.Controllers
     public class MakesController : Controller
     {
         public AngularDbContext Context { get; }
+        
         public MakesController(AngularDbContext context)
         {
             this.Context = context;
         }
+
         [HttpGet("/api/makes")]
         public async Task<IEnumerable<Makes>> GetMakes()
         {
