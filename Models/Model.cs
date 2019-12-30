@@ -1,16 +1,14 @@
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System;
+using System.Collections.Generic;
 
-namespace angular_dotnet.Models
+namespace angular_dotnet.Model
 {
-    [Table("Models")]
-    public class Model
+    public partial class Models
     {
         public int Id { get; set; }
-        [Required]
-        [StringLength(255)]
         public string Name { get; set; }
-        public Make Make { get; set; }
         public int MakeId { get; set; }
+
+        public virtual Makes Make { get; set; }
     }
 }

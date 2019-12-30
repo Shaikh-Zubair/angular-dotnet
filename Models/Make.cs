@@ -1,19 +1,18 @@
+using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
 
-namespace angular_dotnet.Models
+namespace angular_dotnet.Model
 {
-    public class Make
+    public partial class Makes
     {
-        public Make(int id, string name)
+        public Makes()
         {
-            Models = new Collection<Model>();
+            Models = new HashSet<Models>();
         }
+
         public int Id { get; set; }
-        [Required]
-        [StringLength(255)]
         public string Name { get; set; }
-        public ICollection<Model> Models { get; set; }
+
+        public virtual ICollection<Models> Models { get; set; }
     }
 }

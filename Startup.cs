@@ -1,5 +1,4 @@
 using System;
-using angular_dotnet.Mapping;
 using angular_dotnet.Persistence;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
@@ -25,14 +24,14 @@ namespace angular_dotnet
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // services.AddAutoMapper(typeof(MappingProfile));
+            services.AddDbContext<AngularDbContext>(options => options.UseMySql(Configuration.GetConnectionString("Default"), x => x.ServerVersion("8.0.18-mysql")));
             services.AddControllersWithViews();
+            services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
             });
-            services.AddDbContext<AngularDbContext>(options => options.UseMySql(Configuration.GetConnectionString("Default")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
