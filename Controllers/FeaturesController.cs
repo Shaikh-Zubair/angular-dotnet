@@ -16,7 +16,7 @@ namespace angular_dotnet.Controllers
 
         public AngularDbContext Context { get; }
 
-        [HttpGet("api/features")]
+        [HttpGet("/api/features")]
         public async Task<IEnumerable<Features>> GetFeatures()
         {
             return await Context.Features.ToListAsync();
