@@ -1,4 +1,4 @@
-import { MakeService } from "./services/make.service";
+import { VehicleService } from "./services/vehicle.service";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -33,7 +33,7 @@ import { VehicleFormComponent } from "./vehicle-form/vehicle-form.component";
       { path: "vehicle-form", component: VehicleFormComponent }
     ])
   ],
-  providers: [MakeService],
+  providers: [VehicleService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
